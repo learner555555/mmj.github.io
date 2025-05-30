@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>三个爱心动画</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+        
+        h1 {
+            color: #ff6b6b;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 50px;
+            z-index: 10;
+            animation: titlePulse 2s infinite alternate;
+        }
+        
+        .container {
+            position: relative;
+            height: 300px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .heart {
+            position: absolute;
+            width: 100px;
+            height: 90px;
+            animation: float 4s ease-in-out infinite;
+        }
+        
+        .heart:before, .heart:after {
+            position: absolute;
+            content: "";
+            left: 50px;
+            top: 0;
+            width: 50px;
+            height: 80px;
+            background: red;
+            border-radius: 50px 50px 0 0;
+            transform: rotate(-45deg);
+            transform-origin: 0 100%;
+        }
+        
+        .heart:after {
+            left: 0;
+            transform: rotate(45deg);
+            transform-origin: 100% 100%;
+        }
+        
+        .heart1 {
+            color: #ff6b6b;
+            animation-delay: 0s;
+        }
+        
+        .heart2 {
+            color: #ff8e8e;
+            left: calc(50% - 50px);
+            top: calc(50% - 45px);
+            animation-delay: 0.5s;
+        }
+        
+        .heart3 {
+            color: #ffaaaa;
+            animation-delay: 1s;
+        }
+        
+        .heart1:before, .heart1:after {
+            background: #ff6b6b;
+        }
+        
+        .heart2:before, .heart2:after {
+            background: #ff8e8e;
+        }
+        
+        .heart3:before, .heart3:after {
+            background: #ffaaaa;
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: translateY(-50px) scale(1.2);
+                opacity: 0.8;
+            }
+        }
+        
+        @keyframes titlePulse {
+            from {
+                transform: scale(1);
+            }
+            to {
+                transform: scale(1.05);
+                color: #ff4757;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>爱心动画</h1>
+    <div class="container">
+        <div class="heart heart1"></div>
+        <div class="heart heart2"></div>
+        <div class="heart heart3"></div>
+    </div>
+</body>
+</html>
